@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:internshala/designs/widget_designs/email.dart';
 import 'package:internshala/designs/widget_designs/password.dart';
 
-class RecruiterLoginpartDesign extends StatefulWidget {
-  const RecruiterLoginpartDesign({super.key});
+class RecruiterSignupDesign extends StatefulWidget {
+  const RecruiterSignupDesign({super.key});
 
   @override
-  State<RecruiterLoginpartDesign> createState() =>
-      _RecruiterLoginpartDesignState();
+  State<RecruiterSignupDesign> createState() => _RecruiterSignupDesignState();
 }
 
-class _RecruiterLoginpartDesignState extends State<RecruiterLoginpartDesign> {
+class _RecruiterSignupDesignState extends State<RecruiterSignupDesign> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
@@ -23,20 +21,6 @@ class _RecruiterLoginpartDesignState extends State<RecruiterLoginpartDesign> {
           SizedBox(height: 4),
           Password(),
           SizedBox(height: 24),
-
-          Align(
-            alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 0, 0, 0),
-              child: Text(
-                "Forgot Password?",
-                style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  color: Colors.grey,
-                ),
-              ),
-            ),
-          ),
 
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -59,7 +43,7 @@ class _RecruiterLoginpartDesignState extends State<RecruiterLoginpartDesign> {
                 width: double.infinity,
                 child: Align(
                   alignment: Alignment.center,
-                  child: Text("Login", style: TextStyle(fontSize: 16)),
+                  child: Text("Sign Up", style: TextStyle(fontSize: 16)),
                 ),
               ),
             ),
@@ -68,7 +52,7 @@ class _RecruiterLoginpartDesignState extends State<RecruiterLoginpartDesign> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              "Or Login With",
+              "Or Signup Using",
               style: TextStyle(color: Colors.blueGrey),
             ),
           ),
