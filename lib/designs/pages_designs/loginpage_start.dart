@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:internshala/designs/pages_designs/recruiter_login.dart';
 
-class LoginpageStart extends StatefulWidget {
+class LoginpageStart extends ConsumerStatefulWidget {
   const LoginpageStart({super.key});
 
   @override
-  State<LoginpageStart> createState() => _LoginpageStartState();
+  ConsumerState<LoginpageStart> createState() => _LoginpageStartState();
 }
 
-class _LoginpageStartState extends State<LoginpageStart> {
+class _LoginpageStartState extends ConsumerState<LoginpageStart> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -101,7 +103,13 @@ class _LoginpageStartState extends State<LoginpageStart> {
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => RecruiterLoginPage(),
+                            ),
+                          );
+                        },
                         child: AnimatedOpacity(
                           opacity: 1,
                           duration: Duration(seconds: 1),

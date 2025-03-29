@@ -1,8 +1,13 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:internshala/pages_designs/loginpage_start.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:internshala/designs/pages_designs/loginpage_start.dart';
+import 'package:internshala/firebase_options.dart';
 
-void main() {
-  runApp(Internshala());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(ProviderScope(child: Internshala()));
 }
 
 class Internshala extends StatelessWidget {
