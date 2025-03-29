@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:internshala/designs/widget_designs/email.dart';
-import 'package:internshala/designs/widget_designs/googleButton.dart';
 import 'package:internshala/designs/widget_designs/password.dart';
 import 'package:internshala/riverpod/login_button_listener.dart';
 
@@ -19,25 +18,6 @@ class _RecruiterLoginPageState extends ConsumerState<RecruiterLoginPage> {
 
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-
-    // AnimatedSwitcher(
-    //   duration: Duration(milliseconds: 500),
-    //   transitionBuilder: (child, animation) {
-    //     return FadeTransition(
-    //       opacity: animation,
-    //       child: SlideTransition(
-    //         position: Tween<Offset>(
-    //           begin: const Offset(0.1, 0),
-    //           end: Offset.zero,
-    //         ).animate(animation),
-    //       ),
-    //     );
-    //   },
-    //   child:
-    //       ref.read(isLoginPressedProvider.notifier).returnLoginState()
-    //           ? Container(color: Colors.red, height: height, width: width)
-    //           : buildSignUpContent(),
-    // );
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -159,20 +139,27 @@ class _RecruiterLoginPageState extends ConsumerState<RecruiterLoginPage> {
               ),
             ),
           ),
+
           Positioned(
             top: height * 0.38,
             bottom: 0,
             left: 0,
             right: 0,
-            child: SizedBox(
-              child: Column(
-                children: [
-                  Email(),
-                  SizedBox(height: 4),
-                  Password(),
-                  SizedBox(height: 24),
-                ],
-              ),
+            child: AnimatedSwitcher(
+              duration: Duration(milliseconds: 500),
+              child:
+                  ref.read(isLoginPressedProvider.notifier).returnLoginState()
+                      ? SizedBox(
+                        child: Column(
+                          children: [
+                            Email(),
+                            SizedBox(height: 4),
+                            Password(),
+                            SizedBox(height: 24),
+                          ],
+                        ),
+                      )
+                      : Text("what"),
             ),
           ),
         ],
