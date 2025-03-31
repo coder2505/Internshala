@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:internshala/designs/widget_designs/recruiter_loginpart_design.dart';
 import 'package:internshala/designs/widget_designs/recruiter_signup_design.dart';
 import 'package:internshala/riverpod/login_button_listener.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class RecruiterLoginPage extends ConsumerStatefulWidget {
   const RecruiterLoginPage({super.key});
