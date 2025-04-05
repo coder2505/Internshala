@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:internshala/assets/utils/FIrebaseFunctions.dart';
 import 'package:internshala/designs/widget_designs/email.dart';
 import 'package:internshala/designs/widget_designs/password.dart';
+import 'package:internshala/global_variables.dart';
 
 class RecruiterLoginpartDesign extends StatefulWidget {
   const RecruiterLoginpartDesign({super.key});
@@ -40,7 +42,16 @@ class _RecruiterLoginpartDesignState extends State<RecruiterLoginpartDesign> {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Firebasefunctions obj = Firebasefunctions();
+                obj.loginuserwithemailandpassword(
+                  GlobalVariables().emailBox,
+                  GlobalVariables().passwordBox,
+                  context,
+                );
+                GlobalVariables().emailBox = "";
+                GlobalVariables().passwordBox = "";
+              },
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(

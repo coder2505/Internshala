@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:internshala/global_variables.dart';
 
 class Password extends StatefulWidget {
   const Password({super.key});
@@ -34,6 +35,9 @@ class _PasswordState extends State<Password> {
               hintText: "Enter password here",
               hintStyle: TextStyle(fontSize: 16),
             ),
+            onChanged: (password) {
+              GlobalVariables().passwordBox = password.trim();
+            },
           ),
         ],
       ),
