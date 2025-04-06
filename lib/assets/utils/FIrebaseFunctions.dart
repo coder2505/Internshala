@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:internshala/designs/pages_designs/recuiter_homepage.dart';
 
 class Firebasefunctions {
   Future<void> createuserwithemailandpassword(
@@ -13,7 +14,12 @@ class Firebasefunctions {
         password: password,
       );
 
-      if (context.mounted) createSnackbar("Successful", "", context);
+      if (context.mounted) {
+        Navigator.pop(
+          context,
+          MaterialPageRoute(builder: (context) => RecuiterHomepage()),
+        );
+      }
     } on FirebaseAuthException catch (e) {
       if (context.mounted) createSnackbar(e.code, e.message, context);
     }
@@ -29,7 +35,12 @@ class Firebasefunctions {
         email: email,
         password: password,
       );
-      if (context.mounted) createSnackbar("Logged in", "", context);
+      if (context.mounted) {
+        Navigator.pop(
+          context,
+          MaterialPageRoute(builder: (context) => RecuiterHomepage()),
+        );
+      }
     } on FirebaseAuthException catch (e) {
       if (context.mounted) createSnackbar(e.code, e.message, context);
     }
