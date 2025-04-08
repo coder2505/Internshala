@@ -2,6 +2,8 @@ class GlobalVariables {
   static String _emailBox = "";
   static String _passwordBox = "";
 
+  static int selectedOptionNavBar = 0;
+
   set emailBox(String e) {
     _emailBox = e;
   }

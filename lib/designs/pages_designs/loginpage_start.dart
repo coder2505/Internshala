@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:internshala/designs/pages_designs/recruiter_login.dart';
+import 'package:internshala/designs/pages_designs/recruitee_login.dart';
 
 class LoginpageStart extends ConsumerStatefulWidget {
   const LoginpageStart({super.key});
@@ -78,7 +78,13 @@ class _LoginpageStartState extends ConsumerState<LoginpageStart> {
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => RecruiterLoginPage(),
+                            ),
+                          );
+                        },
                         child: Container(
                           decoration: BoxDecoration(
                             color: const Color.fromARGB(255, 27, 27, 27),
@@ -103,13 +109,7 @@ class _LoginpageStartState extends ConsumerState<LoginpageStart> {
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: GestureDetector(
-                        onTap: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (context) => RecruiterLoginPage(),
-                            ),
-                          );
-                        },
+                        onTap: () {},
                         child: AnimatedOpacity(
                           opacity: 1,
                           duration: Duration(seconds: 1),

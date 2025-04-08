@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:internshala/assets/utils/FIrebaseFunctions.dart';
+import 'package:internshala/assets/utils/FirebaseFunctions.dart';
 import 'package:internshala/designs/widget_designs/email.dart';
 import 'package:internshala/designs/widget_designs/password.dart';
 import 'package:internshala/global_variables.dart';

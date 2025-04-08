@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:internshala/designs/pages_designs/recuiter_homepage.dart';
+import 'package:internshala/designs/pages_designs/recuitee_homepage.dart';
 
 class Firebasefunctions {
   Future<void> createuserwithemailandpassword(
