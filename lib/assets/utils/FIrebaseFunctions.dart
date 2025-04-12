@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:internshala/designs/pages_designs/recruitee_signup_deatils.dart';
 import 'package:internshala/designs/pages_designs/recuitee_homepage.dart';
+import 'package:internshala/global_variables.dart';
 
 class Firebasefunctions {
   Future<void> createuserwithemailandpassword(
@@ -15,9 +17,11 @@ class Firebasefunctions {
       );
 
       if (context.mounted) {
-        Navigator.pop(
+        GlobalVariables().emailBox = "";
+        GlobalVariables().passwordBox = "";
+        Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => RecuiterHomepage()),
+          MaterialPageRoute(builder: (context) => RecruiteeSignupDetails()),
         );
       }
     } on FirebaseAuthException catch (e) {
@@ -36,7 +40,7 @@ class Firebasefunctions {
         password: password,
       );
       if (context.mounted) {
-        Navigator.pop(
+        Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => RecuiterHomepage()),
         );

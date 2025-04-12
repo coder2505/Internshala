@@ -34,8 +34,7 @@ class _RecruiterSignupDesignState extends State<RecruiterSignupDesign> {
                   GlobalVariables().passwordBox,
                   context,
                 );
-                GlobalVariables().emailBox = "";
-                GlobalVariables().passwordBox = "";
+                
               },
               child: Container(
                 decoration: BoxDecoration(
