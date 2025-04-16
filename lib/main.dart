@@ -1,11 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:internshala/assets/utils/firebaseAddDummyData.dart';
 import 'package:internshala/designs/pages_designs/loginpage_start.dart';
-import 'package:internshala/designs/pages_designs/recuitee_homepage.dart';
 import 'package:internshala/firebase_options.dart';
 
 void main() async {
@@ -24,13 +22,7 @@ class Internshala extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.data != null) return const RecuiterHomepage();
-          return const LoginpageStart();
-        },
-      ),
+      home: LoginpageStart(),
     );
   }
 }

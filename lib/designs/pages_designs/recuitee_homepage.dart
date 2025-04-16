@@ -73,7 +73,7 @@ class _RecuiterHomepageState extends State<RecuiterHomepage> {
             tabs: const [
               GButton(icon: Icons.home, text: "Home"),
               GButton(icon: Icons.school, text: "Internship"),
-              GButton(icon: Icons.work_rounded, text: "Post Job"),
+              GButton(icon: Icons.work_rounded, text: "Jobs"),
               GButton(icon: Icons.account_circle_outlined, text: "Profile"),
             ],
           ),

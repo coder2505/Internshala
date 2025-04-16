@@ -1,6 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:internshala/designs/pages_designs/recruitee_signup_deatils.dart';
+import 'package:internshala/designs/pages_designs/recruitee_signup_details.dart';
 import 'package:internshala/designs/pages_designs/recuitee_homepage.dart';
 import 'package:internshala/global_variables.dart';
 
@@ -19,7 +20,7 @@ class Firebasefunctions {
       if (context.mounted) {
         GlobalVariables().emailBox = "";
         GlobalVariables().passwordBox = "";
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => RecruiteeSignupDetails()),
         );
@@ -40,13 +41,49 @@ class Firebasefunctions {
         password: password,
       );
       if (context.mounted) {
-        Navigator.push(
+        Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => RecuiterHomepage()),
         );
       }
     } on FirebaseAuthException catch (e) {
       if (context.mounted) createSnackbar(e.code, e.message, context);
+    }
+  }
+
+  Future<void> createUserDocument(
+    String firstName,
+    String lastName,
+    String contactNumber,
+    String currentCity,
+    String gender,
+    List<String> lang,
+    String type,
+    BuildContext context,
+  ) async {
+    try {
+      await FirebaseFirestore.instance
+          .collection("RecruiteeData")
+          .doc(FirebaseAuth.instance.currentUser?.uid)
+          .set({
+            "email": FirebaseAuth.instance.currentUser?.email,
+            "firstName": firstName,
+            "lastName": lastName,
+            "contactNumber": contactNumber,
+            "city": currentCity,
+            "gender": gender,
+            "languages": lang,
+            "type": type,
+          });
+
+      if (context.mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => RecuiterHomepage()),
+        );
+      }
+    } catch (e) {
+      rethrow;
     }
   }
 
