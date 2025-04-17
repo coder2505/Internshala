@@ -2,8 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:internshala/assets/utils/dummydata.dart';
 
 class Firebaseadddummydata {
+  int a = 0;
   Future<void> addDummyData() async {
-    int a = await getCountCollection("RecruiterData");
+    a = await getCountCollection("RecruiterData");
 
     print("COUNT OF DOCUMENTS IN A COLLECTION $a");
 
@@ -13,7 +14,7 @@ class Firebaseadddummydata {
   }
 
   void addData() {
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 13; i++) {
       try {
         FirebaseFirestore.instance.collection("RecruiterData").add({
           "About": Dummydata().about[i],

@@ -79,7 +79,7 @@ class _LoginpageStartState extends ConsumerState<LoginpageStart> {
                       padding: const EdgeInsets.all(16.0),
                       child: GestureDetector(
                         onTap: () {
-                          Navigator.of(context).pushReplacement(
+                          Navigator.of(context).push(
                             MaterialPageRoute(
                               builder: (context) => RecruiterLoginPage(),
                             ),

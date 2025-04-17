@@ -3,49 +3,207 @@ class Dummydata {
     "A company focused on innovative tech solutions.",
     "An NGO working in the education sector.",
     "A marketing agency specializing in social media.",
+    "A fintech startup building payment infrastructure.",
+    "An ed-tech platform offering personalized learning.",
+    "A travel blog looking for creative contributors.",
+    "A fashion brand expanding to online retail.",
+    "A health-tech firm revolutionizing patient care.",
+    "A food delivery service optimizing logistics.",
+    "A sustainability-focused consulting agency.",
+    "A blockchain company exploring smart contracts.",
+    "A gaming studio building mobile games.",
+    "An analytics firm providing insights to businesses.",
   ];
 
   List<String> additionalInfo = [
     "Remote internship with flexible hours.",
     "Certificate provided on completion.",
     "Travel allowance will be reimbursed.",
+    "Performance-based stipend available.",
+    "Opportunity to work full-time post-internship.",
+    "Mentorship from industry experts.",
+    "Letter of recommendation on successful completion.",
+    "Work in a fast-paced startup environment.",
+    "Interns will get free merchandise.",
+    "Get a chance to pitch your ideas to the CEO.",
+    "Access to premium tools and software.",
+    "Flexible 4-day work week.",
+    "Team outings every month.",
   ];
 
-  List<String> deadline = ["2025-04-30", "2025-05-15", "2025-06-01"];
+  List<String> deadline = [
+    "2025-04-30",
+    "2025-05-15",
+    "2025-06-01",
+    "2025-05-10",
+    "2025-06-20",
+    "2025-07-01",
+    "2025-04-25",
+    "2025-05-05",
+    "2025-06-10",
+    "2025-07-15",
+    "2025-05-30",
+    "2025-06-25",
+    "2025-08-01",
+  ];
 
-  List<String> duration = ["3 months", "6 weeks", "2 months"];
+  List<String> duration = [
+    "3 months",
+    "6 weeks",
+    "2 months",
+    "1 month",
+    "4 months",
+    "8 weeks",
+    "12 weeks",
+    "5 months",
+    "10 weeks",
+    "6 months",
+    "2.5 months",
+    "9 weeks",
+    "7 weeks",
+  ];
 
   List<String> internshipAbout = [
     "Work with our core development team.",
     "Assist in field research and data collection.",
     "Help design social media strategies.",
+    "Create engaging blog content for our platform.",
+    "Design UI/UX for our new mobile app.",
+    "Support the HR team with recruitment tasks.",
+    "Conduct market research and competitor analysis.",
+    "Edit promotional videos and animations.",
+    "Help onboard new partners and vendors.",
+    "Contribute to open-source community efforts.",
+    "Develop a chatbot for customer service.",
+    "Analyze customer feedback and usage patterns.",
+    "Organize virtual workshops and webinars.",
   ];
 
   List<String> internshipTitle = [
     "Software Development Intern",
     "Research Assistant Intern",
     "Marketing Intern",
+    "Content Writer Intern",
+    "UI/UX Designer Intern",
+    "HR Intern",
+    "Business Development Intern",
+    "Video Editing Intern",
+    "Operations Intern",
+    "Community Manager Intern",
+    "AI/ML Intern",
+    "Data Analyst Intern",
+    "Event Coordinator Intern",
   ];
 
-  List<String> location = ["Remote", "Delhi", "Mumbai"];
+  List<String> location = [
+    "Remote",
+    "Delhi",
+    "Mumbai",
+    "Bangalore",
+    "Hyderabad",
+    "Chennai",
+    "Pune",
+    "Remote",
+    "Jaipur",
+    "Ahmedabad",
+    "Remote",
+    "Gurgaon",
+    "Kolkata",
+  ];
 
-  List<String> name = ["TechNova", "EduServe Foundation", "MarketWise"];
+  List<String> name = [
+    "TechNova",
+    "EduServe Foundation",
+    "MarketWise",
+    "PayTide",
+    "LearnLoop",
+    "WanderWrite",
+    "StyleSphere",
+    "MediLink",
+    "QuickBite",
+    "EcoThink",
+    "BlockWorx",
+    "PixelPlay",
+    "Insightify",
+  ];
 
-  List<String> openings = ["2", "5", "3"];
+  List<String> openings = [
+    "2",
+    "5",
+    "3",
+    "1",
+    "4",
+    "2",
+    "3",
+    "2",
+    "6",
+    "1",
+    "2",
+    "5",
+    "3",
+  ];
 
-  List<String> pay = ["₹10,000/month", "Unpaid", "₹5,000/month"];
+  List<String> pay = [
+    "₹10,000/month",
+    "Unpaid",
+    "₹5,000/month",
+    "₹3,000/month",
+    "₹8,000/month",
+    "₹6,000/month",
+    "Performance based",
+    "₹15,000/month",
+    "₹7,000/month",
+    "Unpaid",
+    "₹12,000/month",
+    "₹4,000/month",
+    "₹9,000/month",
+  ];
 
   List<List<String>> skillsRequired = [
     ["Flutter", "Firebase", "Git"],
     ["Data Collection", "Excel"],
     ["Communication", "Canva", "Social Media"],
+    ["Writing", "SEO", "Creativity"],
+    ["Figma", "User Research"],
+    ["People Skills", "Recruitment"],
+    ["Sales", "Negotiation", "CRM Tools"],
+    ["Premiere Pro", "After Effects"],
+    ["Logistics", "Vendor Management"],
+    ["Community Building", "Event Planning"],
+    ["Python", "TensorFlow"],
+    ["Excel", "SQL", "Power BI"],
+    ["Public Speaking", "Time Management"],
   ];
 
-  List<String> startsFrom = ["2025-05-01", "2025-06-10", "2025-05-20"];
+  List<String> startsFrom = [
+    "2025-05-01",
+    "2025-06-10",
+    "2025-05-20",
+    "2025-05-05",
+    "2025-06-01",
+    "2025-06-15",
+    "2025-07-01",
+    "2025-05-25",
+    "2025-06-05",
+    "2025-07-10",
+    "2025-05-30",
+    "2025-06-20",
+    "2025-07-15",
+  ];
 
   List<String> whoCanApply = [
     "Anyone with relevant skills",
     "Final year students preferred",
     "Marketing students or graduates",
+    "Passionate writers and bloggers",
+    "Design students or enthusiasts",
+    "MBA students preferred",
+    "Freshers and recent grads welcome",
+    "Video editing enthusiasts",
+    "Organized and proactive individuals",
+    "Outgoing and community-driven folks",
+    "CS or IT students with AI interest",
+    "Those familiar with data tools",
+    "Event lovers with planning skills",
   ];
 }

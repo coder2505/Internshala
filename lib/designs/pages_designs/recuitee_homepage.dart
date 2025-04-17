@@ -1,18 +1,19 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:internshala/designs/pages_designs/recruitee_homepagedesigns.dart/recruitee_homescreen.dart';
 
-class RecuiterHomepage extends StatefulWidget {
+class RecuiterHomepage extends ConsumerStatefulWidget {
   const RecuiterHomepage({super.key});
 
   @override
-  State<RecuiterHomepage> createState() => _RecuiterHomepageState();
+  ConsumerState<RecuiterHomepage> createState() => _RecuiterHomepageState();
 }
 
-class _RecuiterHomepageState extends State<RecuiterHomepage> {
+class _RecuiterHomepageState extends ConsumerState<RecuiterHomepage> {
   List screen = [
-    RecruiteeHomescreen().homescreen(),
+    "",
     Center(child: Text("Internships")),
     Center(child: Text("Jobs")),
     TextButton(
@@ -30,6 +31,7 @@ class _RecuiterHomepageState extends State<RecuiterHomepage> {
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -54,7 +56,12 @@ class _RecuiterHomepageState extends State<RecuiterHomepage> {
       ),
 
       body: Scaffold(
-        body: Center(child: screen[screenindex]),
+        body: Center(
+          child:
+              screenindex > 0
+                  ? screen[screenindex]
+                  : RecruiteeHomescreen().homescreen(context, ref),
+        ),
 
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.fromLTRB(8, 8, 8, 24),
