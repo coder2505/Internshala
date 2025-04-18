@@ -18,7 +18,7 @@ class Firebaseadddummydata {
       try {
         FirebaseFirestore.instance.collection("RecruiterData").add({
           "About": Dummydata().about[i],
-          "Additional Info": Dummydata().about[i],
+          "Additional Info": Dummydata().additionalInfo[i],
           "Deadline": Dummydata().deadline[i],
           "Duration": Dummydata().duration[i],
           "Internship About": Dummydata().internshipAbout[i],

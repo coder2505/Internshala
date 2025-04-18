@@ -16,3 +16,7 @@ final JobsInYourAreaProvider = StateProvider<List<QueryDocumentSnapshot>>((
 ) {
   return [];
 });
+
+final JobDetailsProvider = StateProvider<DocumentSnapshot?>((ref) {
+  return null;
+});

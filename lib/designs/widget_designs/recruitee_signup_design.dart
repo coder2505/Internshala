@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:internshala/assets/utils/FirebaseFunctions.dart';
+import 'package:internshala/assets/utils/services/googleauthoptions.dart';
 import 'package:internshala/designs/widget_designs/email.dart';
 import 'package:internshala/designs/widget_designs/password.dart';
 import 'package:internshala/global_variables.dart';
@@ -34,7 +35,6 @@ class _RecruiterSignupDesignState extends State<RecruiterSignupDesign> {
                   GlobalVariables().passwordBox,
                   context,
                 );
-                
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -85,7 +85,9 @@ class _RecruiterSignupDesignState extends State<RecruiterSignupDesign> {
                     height: double.infinity,
                     width: width * 0.2,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        GoogleAuthOptions().signupwithgoogle(context);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: SizedBox(

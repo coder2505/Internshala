@@ -28,7 +28,10 @@ class RecruiteeSignupDetailsCity {
             ),
             SizedBox(height: 12),
             TextField(
-              onChanged: (value) => GlobalVariables.contactNumber,
+              onChanged: (value) {
+                GlobalVariables.currentCity = value;
+                print(GlobalVariables.currentCity);
+              },
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: Colors.blue),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:internshala/designs/pages_designs/recruitee_homepagedesigns.dart/recruitee_homescreen.dart';
+import 'package:internshala/designs/pages_designs/recruitee_homepagedesigns.dart/recruitee_internships.dart';
 
 class RecuiterHomepage extends ConsumerStatefulWidget {
   const RecuiterHomepage({super.key});
@@ -12,22 +13,22 @@ class RecuiterHomepage extends ConsumerStatefulWidget {
 }
 
 class _RecuiterHomepageState extends ConsumerState<RecuiterHomepage> {
-  List screen = [
-    "",
-    Center(child: Text("Internships")),
-    Center(child: Text("Jobs")),
-    TextButton(
-      onPressed: () {
-        FirebaseAuth.instance.signOut();
-      },
-      child: Text("LOGOUT"),
-    ),
-  ];
-
   int screenindex = 0;
 
   @override
   Widget build(BuildContext context) {
+    List screen = [
+      RecruiteeHomescreen().homescreen(context, ref),
+      RecruiteeInternships(),
+      TextButton(
+        onPressed: () async {
+          await FirebaseAuth.instance.signOut();
+          if (context.mounted) Navigator.pop(context);
+        },
+        child: Text("LOGOUT"),
+      ),
+    ];
+
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
@@ -56,12 +57,7 @@ class _RecuiterHomepageState extends ConsumerState<RecuiterHomepage> {
       ),
 
       body: Scaffold(
-        body: Center(
-          child:
-              screenindex > 0
-                  ? screen[screenindex]
-                  : RecruiteeHomescreen().homescreen(context, ref),
-        ),
+        body: Center(child: screen[screenindex]),
 
         bottomNavigationBar: Padding(
           padding: const EdgeInsets.fromLTRB(8, 8, 8, 24),
@@ -80,7 +76,6 @@ class _RecuiterHomepageState extends ConsumerState<RecuiterHomepage> {
             tabs: const [
               GButton(icon: Icons.home, text: "Home"),
               GButton(icon: Icons.school, text: "Internship"),
-              GButton(icon: Icons.work_rounded, text: "Jobs"),
               GButton(icon: Icons.account_circle_outlined, text: "Profile"),
             ],
           ),

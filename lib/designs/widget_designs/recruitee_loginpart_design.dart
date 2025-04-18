@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:internshala/assets/utils/FirebaseFunctions.dart';
+import 'package:internshala/assets/utils/services/googleauthoptions.dart';
 import 'package:internshala/designs/widget_designs/email.dart';
 import 'package:internshala/designs/widget_designs/password.dart';
 import 'package:internshala/global_variables.dart';
@@ -101,7 +102,9 @@ class _RecruiterLoginpartDesignState extends State<RecruiterLoginpartDesign> {
                     height: double.infinity,
                     width: width * 0.2,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        GoogleAuthOptions().loginwithgoogle(context);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: SizedBox(
