@@ -225,7 +225,10 @@ class _JobDetailsState extends ConsumerState<JobDetails> {
                       return SizedBox(
                         width: double.infinity,
                         height: MediaQuery.of(context).size.height,
-                        child: RecruiteeApplyBottomsheet().showsheet(context),
+                        child: RecruiteeApplyBottomsheet().showsheet(
+                          context,
+                          ref,
+                        ),
                       );
                     },
                   );
