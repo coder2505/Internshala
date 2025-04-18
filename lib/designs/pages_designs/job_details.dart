@@ -1,8 +1,7 @@
-import 'dart:ffi';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:internshala/designs/widget_designs/recruitee_apply_bottomsheet.dart';
 import 'package:internshala/riverpod/recuitee_homepage_riverpod.dart';
 
 class JobDetails extends ConsumerStatefulWidget {
@@ -219,7 +218,18 @@ class _JobDetailsState extends ConsumerState<JobDetails> {
               ),
               SizedBox(height: 20),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return SizedBox(
+                        width: double.infinity,
+                        height: MediaQuery.of(context).size.height,
+                        child: RecruiteeApplyBottomsheet().showsheet(context),
+                      );
+                    },
+                  );
+                },
                 child: Container(
                   width: double.infinity,
                   height: 75,

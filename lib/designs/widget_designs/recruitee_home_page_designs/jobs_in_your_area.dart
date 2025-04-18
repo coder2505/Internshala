@@ -48,7 +48,7 @@ class JobsInYourArea {
             height: double.infinity,
             width: 200,
             decoration: BoxDecoration(
-              color: Colors.blueGrey,
+              color: const Color.fromARGB(255, 22, 40, 48),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
@@ -89,7 +89,12 @@ class JobsInYourArea {
                     ],
                   ),
                 ),
-                Divider(thickness: 0.5, indent: 10, endIndent: 10),
+                Divider(
+                  thickness: 0.5,
+                  indent: 10,
+                  endIndent: 10,
+                  color: Colors.white,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(

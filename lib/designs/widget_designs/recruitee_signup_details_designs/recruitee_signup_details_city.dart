@@ -30,7 +30,6 @@ class RecruiteeSignupDetailsCity {
             TextField(
               onChanged: (value) {
                 GlobalVariables.currentCity = value;
-                print(GlobalVariables.currentCity);
               },
               decoration: InputDecoration(
                 focusedBorder: OutlineInputBorder(

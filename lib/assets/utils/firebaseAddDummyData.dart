@@ -6,8 +6,6 @@ class Firebaseadddummydata {
   Future<void> addDummyData() async {
     a = await getCountCollection("RecruiterData");
 
-    print("COUNT OF DOCUMENTS IN A COLLECTION $a");
-
     if (a == 1) {
       addData();
     }
@@ -31,7 +29,7 @@ class Firebaseadddummydata {
           "Who can apply": Dummydata().whoCanApply[i],
         });
       } catch (e) {
-        print(e);
+        rethrow;
       }
     }
   }

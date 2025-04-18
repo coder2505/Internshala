@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -15,6 +16,8 @@ class _LoginpageStartState extends ConsumerState<LoginpageStart> {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+
+    print(FirebaseAuth.instance.currentUser);
 
     return Scaffold(
       body: Stack(

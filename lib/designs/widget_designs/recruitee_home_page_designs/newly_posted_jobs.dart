@@ -33,7 +33,7 @@ class JobsNearYourArea {
             height: double.infinity,
             width: 200,
             decoration: BoxDecoration(
-              color: Colors.blueGrey,
+              color: const Color.fromARGB(255, 22, 40, 48),
               borderRadius: BorderRadius.circular(20),
             ),
             child: Column(
@@ -64,7 +64,12 @@ class JobsNearYourArea {
                     ],
                   ),
                 ),
-                Divider(thickness: 0.5, indent: 10, endIndent: 10),
+                Divider(
+                  thickness: 0.5,
+                  indent: 10,
+                  endIndent: 10,
+                  color: const Color.fromARGB(255, 209, 208, 208),
+                ),
                 Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Column(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:internshala/global_variables.dart';
 
 class RecruiteeSignupDetailsContactno {
