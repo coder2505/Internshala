@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:internshala/designs/pages_designs/job_details.dart';
+import 'package:internshala/firebase/bookmark.dart';
+import 'package:internshala/riverpod/bookmark_riverpod.dart';
 import 'package:internshala/riverpod/recuitee_homepage_riverpod.dart';
 
 class RecruiteeInternships extends ConsumerStatefulWidget {
@@ -14,7 +17,9 @@ class RecruiteeInternships extends ConsumerStatefulWidget {
 class _RecruiteeInternshipsState extends ConsumerState<RecruiteeInternships> {
   @override
   Widget build(BuildContext context) {
+    ref.watch(bookmark_riverpod);
     ref.watch(newlyPostedJobsProvider);
+
     return ListView.builder(
       itemCount: ref.read(newlyPostedJobsProvider.notifier).state.length,
       scrollDirection: Axis.vertical,
@@ -34,15 +39,36 @@ class _RecruiteeInternshipsState extends ConsumerState<RecruiteeInternships> {
                   padding: const EdgeInsets.all(16.0),
                   child: Column(
                     children: [
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          ref
-                                  .read(newlyPostedJobsProvider.notifier)
-                                  .state[index]['Internship Title'] ??
-                              "...",
-                          style: TextStyle(fontSize: 24),
-                        ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              ref
+                                      .read(newlyPostedJobsProvider.notifier)
+                                      .state[index]['Internship Title'] ??
+                                  "...",
+                              overflow: TextOverflow.clip,
+                              style: TextStyle(fontSize: 22),
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              Bookmark().clicked(
+                                ref
+                                    .read(newlyPostedJobsProvider.notifier)
+                                    .state[index]
+                                    .id,
+                                FirebaseAuth.instance.currentUser?.uid,
+                              );
+                            },
+                            icon:
+                                ref.read(bookmark_riverpod.notifier).state
+                                    ? Icon(Icons.bookmark_added)
+                                    : Icon(Icons.bookmark_add),
+                          ),
+                        ],
                       ),
 
                       Align(
@@ -52,7 +78,7 @@ class _RecruiteeInternshipsState extends ConsumerState<RecruiteeInternships> {
                                   .read(newlyPostedJobsProvider.notifier)
                                   .state[index]['Name'] ??
                               "...",
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(fontSize: 16),
                         ),
                       ),
                     ],

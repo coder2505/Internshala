@@ -35,6 +35,8 @@ class Applytojob {
             .collection('RecruiteeData')
             .doc(useruid)
             .update({'Applied Jobs': applyjobs});
+      } else {
+        return false;
       }
 
       //UPDATING JOB REC DATABASE
@@ -54,6 +56,8 @@ class Applytojob {
             .collection('RecruiterData')
             .doc(job_uid)
             .update({'Candidates Applied': appliedcandidates});
+      } else {
+        return false;
       }
       return true;
     } catch (e) {

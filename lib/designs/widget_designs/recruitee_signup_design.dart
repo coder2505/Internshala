@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:internshala/assets/utils/FirebaseFunctions.dart';
-import 'package:internshala/assets/utils/services/googleauthoptions.dart';
+import 'package:internshala/firebase/FirebaseFunctions.dart';
+import 'package:internshala/firebase/services/googleauthoptions.dart';
 import 'package:internshala/designs/widget_designs/email.dart';
 import 'package:internshala/designs/widget_designs/password.dart';
 import 'package:internshala/global_variables.dart';

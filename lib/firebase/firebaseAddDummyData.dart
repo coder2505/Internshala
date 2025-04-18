@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:internshala/assets/utils/dummydata.dart';
+import 'package:internshala/firebase/dummydata.dart';
 
 class Firebaseadddummydata {
   int a = 0;

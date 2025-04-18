@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:internshala/assets/utils/applytojob.dart';
+import 'package:internshala/firebase/applytojob.dart';
 import 'package:internshala/riverpod/recuitee_homepage_riverpod.dart';
 
 class RecruiteeApplyBottomsheet {
@@ -33,20 +33,19 @@ class RecruiteeApplyBottomsheet {
           ),
         ),
         TextButton(
-          onPressed: () {
+          onPressed: () async {
             if (context.mounted) {
-              var a = Applytojob().applytojob(
+              var a = await Applytojob().applytojob(
                 FirebaseAuth.instance.currentUser?.uid,
                 (ref.read(JobDetailsProvider.notifier).state)?.id,
                 link,
               );
-              Navigator.pop(context);
-
-              if (a == true) {
+              if (context.mounted) Navigator.pop(context);
+              if (a == true && context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Job Successfully applied')),
                 );
-              } else {
+              } else if (a == false && context.mounted) {
                 ScaffoldMessenger.of(
                   context,
                 ).showSnackBar(SnackBar(content: Text('Already applied')));

@@ -1,30 +1,41 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:internshala/riverpod/recuitee_homepage_riverpod.dart';
+import 'package:internshala/riverpod/bookmark_riverpod.dart';
 
-class JobsNearYourArea {
-  String? title, recruiterName, location, pay, duration;
-  List? data;
-
-  Future<void> loadData(WidgetRef ref) async {
+class BookmarkedJobs {
+  // ignore: non_constant_identifier_names
+  Future<void> loaddata(String? user_uid, WidgetRef ref) async {
     try {
-      QuerySnapshot snapshot =
-          await FirebaseFirestore.instance.collection("RecruiterData").get();
+      QuerySnapshot querySnapshot =
+          await FirebaseFirestore.instance.collection('RecruiterData').get();
+      DocumentSnapshot map =
+          await FirebaseFirestore.instance
+              .collection('RecruiteeData')
+              .doc(user_uid)
+              .get();
+      List jobs = map['Bookmarked Jobs'];
+      List bookmarkedJobs = [];
 
-      ref.read(newlyPostedJobsProvider.notifier).state = snapshot.docs;
+      for (var docs in querySnapshot.docs) {
+        if (jobs.contains(docs.id)) {
+          bookmarkedJobs.add(docs);
+        }
+      }
+
+      ref.read(bookmarkedJobsProvider.notifier).state = bookmarkedJobs;
     } catch (e) {
       rethrow;
     }
   }
 
   Widget jobs(WidgetRef ref) {
-    loadData(ref);
-    ref.watch(newlyPostedJobsProvider);
-    int len = ref.read(newlyPostedJobsProvider.notifier).state.length;
+    loaddata(FirebaseAuth.instance.currentUser?.uid, ref);
+    ref.watch(bookmarkedJobsProvider);
 
     return ListView.builder(
-      itemCount: len < 10 ? len : 10,
+      itemCount: ref.read(bookmarkedJobsProvider.notifier).state.length,
       scrollDirection: Axis.horizontal,
       itemBuilder: (BuildContext context, index) {
         return Padding(
@@ -47,7 +58,7 @@ class JobsNearYourArea {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           ref
-                                  .read(newlyPostedJobsProvider.notifier)
+                                  .read(bookmarkedJobsProvider.notifier)
                                   .state[index]['Internship Title'] ??
                               "...",
                         ),
@@ -56,7 +67,7 @@ class JobsNearYourArea {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           ref
-                                  .read(newlyPostedJobsProvider.notifier)
+                                  .read(bookmarkedJobsProvider.notifier)
                                   .state[index]['Name'] ??
                               "...",
                         ),
@@ -78,7 +89,7 @@ class JobsNearYourArea {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           ref
-                                  .read(newlyPostedJobsProvider.notifier)
+                                  .read(bookmarkedJobsProvider.notifier)
                                   .state[index]['Location'] ??
                               "...",
                         ),
@@ -87,7 +98,7 @@ class JobsNearYourArea {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           ref
-                                  .read(newlyPostedJobsProvider.notifier)
+                                  .read(bookmarkedJobsProvider.notifier)
                                   .state[index]['Pay'] ??
                               "...",
                         ),
@@ -96,7 +107,7 @@ class JobsNearYourArea {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           ref
-                                  .read(newlyPostedJobsProvider.notifier)
+                                  .read(bookmarkedJobsProvider.notifier)
                                   .state[index]['Duration'] ??
                               "...",
                         ),
@@ -111,5 +122,4 @@ class JobsNearYourArea {
       },
     );
   }
-
 }

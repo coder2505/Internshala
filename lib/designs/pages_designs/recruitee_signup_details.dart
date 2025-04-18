@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:internshala/assets/utils/FirebaseFunctions.dart';
+import 'package:internshala/firebase/FirebaseFunctions.dart';
 import 'package:internshala/designs/widget_designs/recruitee_signup_details_designs/name_textboxes.dart';
 import 'package:internshala/designs/widget_designs/recruitee_signup_details_designs/recruitee_signup_details_city.dart';
 import 'package:internshala/designs/widget_designs/recruitee_signup_details_designs/recruitee_signup_details_contactno.dart';
